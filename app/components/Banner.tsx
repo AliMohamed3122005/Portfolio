@@ -62,8 +62,6 @@ export default function Banner(): React.JSX.Element {
 
         {/* =========================================================
             MOBILE VERSION
-            This exists only for screens smaller than lg.
-            Desktop version below stays independent.
            ========================================================= */}
         <div className="lg:hidden flex flex-col items-center text-center">
 
@@ -89,6 +87,7 @@ export default function Banner(): React.JSX.Element {
                   Ali Mohamed
                 </span>
               </p>
+
             </div>
           </div>
 
@@ -127,6 +126,7 @@ export default function Banner(): React.JSX.Element {
               className="object-contain z-10"
               priority
             />
+
           </div>
 
           {/* Main Heading */}
@@ -145,9 +145,10 @@ export default function Banner(): React.JSX.Element {
             <p className="text-sm text-white/80 mt-3">
               Engineering ideas into real-world solutions.
             </p>
+
           </div>
 
-          {/* Animated Title */}
+          {/* Animated Title + About */}
           <div className="mt-10 w-full">
 
             <p className="text-4xl text-white font-bold leading-tight">
@@ -176,21 +177,29 @@ export default function Banner(): React.JSX.Element {
                 height={22}
                 className="w-5 h-5 object-contain"
               />
+
             </div>
 
-            {/* About */}
-            <p className="text-lg text-white/80 max-w-[340px] mx-auto mt-7 leading-relaxed">
-              I like turning ideas into things you can actually see,
-              test, and interact with. I enjoy solving problems,
-              experimenting with new technologies, and bringing concepts
-              to life through practical projects.
-            </p>
+            {/* About Card */}
+            <div className="mt-7 max-w-[360px] mx-auto bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/10 shadow-lg text-left">
+              <p className="text-base text-white/80 leading-relaxed">
+                Have an idea? I can help turn it into a working solution.
+                I build practical technology solutions using AI, Machine
+                Learning, Computer Vision, Data Science, and Robotics.
+                From intelligent applications and data-driven insights
+                to computer vision systems and robotic prototypes, I enjoy
+                solving problems and turning concepts into something real.
+                Whether you want to automate a process, analyze data,
+                build an intelligent system, or bring a new idea to life,
+                I&apos;m ready to work on it.
+              </p>
+            </div>
+
           </div>
         </div>
 
         {/* =========================================================
             DESKTOP VERSION
-            Kept separate so mobile changes do not affect desktop.
            ========================================================= */}
         <div className="hidden lg:block">
 
@@ -251,6 +260,7 @@ export default function Banner(): React.JSX.Element {
                     "
                     priority
                   />
+
                 </div>
               </div>
             </div>
@@ -291,10 +301,12 @@ export default function Banner(): React.JSX.Element {
                 </div>
 
                 <div className="absolute -bottom-2 left-8 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white/10"></div>
+
               </div>
 
-              {/* Main heading */}
+              {/* Main Heading */}
               <div>
+
                 <p className="text-2xl text-white">
                   An Engineer who
                 </p>
@@ -308,6 +320,7 @@ export default function Banner(): React.JSX.Element {
                 <p className="text-md text-white/80">
                   Engineering ideas into real-world solutions.
                 </p>
+
               </div>
             </div>
           </div>
@@ -339,17 +352,26 @@ export default function Banner(): React.JSX.Element {
                 height={24}
                 className="w-6 h-6 object-contain"
               />
+
             </p>
 
-            {/* About me */}
-            <p className="text-xl text-white/80 max-w-2xl mt-15">
-              I like turning ideas into things you can actually see, test,
-              and interact with. I enjoy solving problems, experimenting
-              with new technologies, and bringing concepts to life through
-              practical projects. For me, the best part of building
-              something is watching it come to life and work exactly as
-              intended.
-            </p>
+            {/* About Card */}
+            <div className="mt-15 max-w-6xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/10 shadow-lg">
+
+              <p className="text-xl text-white/80 leading-relaxed">
+                Have an idea? I can help turn it into a working solution.
+                I build practical technology solutions using AI, Machine
+                Learning, Computer Vision, Data Science, and Robotics.
+                From intelligent applications and data-driven insights
+                to computer vision systems and robotic prototypes, I enjoy
+                solving problems and turning concepts into something real.
+                Whether you want to automate a process, analyze data,
+                build an intelligent system, or bring a new idea to life,
+                I&apos;m ready to work on it.
+              </p>
+
+            </div>
+
           </div>
         </div>
 
