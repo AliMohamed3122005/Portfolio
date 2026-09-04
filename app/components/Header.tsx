@@ -56,7 +56,7 @@ export default function Header(): React.JSX.Element {
             {/* Download CV */}
             <li className="m-0 p-0">
               <a
-                href="/cv/Ali-Mohamed-CV.pdf"
+                href="/cv/Ali-Mohamed-Cv.pdf"
                 download
                 className="px-4 py-2 rounded-lg bg-purple-600/20 border border-purple-500/50 text-white hover:bg-purple-600/40 hover:border-purple-400 transition-all duration-200 text-sm font-medium"
               >
