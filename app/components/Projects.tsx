@@ -158,10 +158,10 @@ export default function Projects(): React.JSX.Element {
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         className={`object-contain ${
-                            project.id === 1
-                            ? "scale-[1.05]"
+                          project.id === 1
+                            ? "scale-[0.95]"
                             : project.id === 2
-                            ? "scale-[0.9]"
+                            ? "scale-[0.8]"
                             : ""
                         }`}
                       />
