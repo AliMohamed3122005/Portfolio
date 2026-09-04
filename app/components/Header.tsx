@@ -21,8 +21,7 @@ export default function Header(): React.JSX.Element {
           </Link>
 
           {/* Navigation */}
-          <ul className="flex items-center gap-8 list-none m-0 p-0">
-
+          <ul className="flex items-center gap-4 md:gap-8 list-none m-0 p-0">
             {/* Home */}
             <li className="m-0 p-0">
               <Link
@@ -58,8 +57,7 @@ export default function Header(): React.JSX.Element {
               <a
                 href="/cv/Ali-Mohamed-Cv.pdf"
                 download
-                className="px-4 py-2 rounded-lg bg-purple-600/20 border border-purple-500/50 text-white hover:bg-purple-600/40 hover:border-purple-400 transition-all duration-200 text-sm font-medium"
-              >
+                className="px-3 py-2 md:px-4 rounded-lg bg-purple-600/20 border border-purple-500/50 text-white hover:bg-purple-600/40 hover:border-purple-400 transition-all duration-200 text-xs md:text-sm font-medium whitespace-nowrap"              >
                 Download CV
               </a>
             </li>
