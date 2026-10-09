@@ -6,6 +6,9 @@ interface Project {
   description: string;
   image: string;
   link?: string;
+  role?: string;
+  tools?: string[];
+  metrics?: { value: string; label: string }[];
 }
 
 const featuredProjects: Project[] = [
@@ -36,6 +39,19 @@ const featuredProjects: Project[] = [
     description:
       "An ongoing project focused on developing a system that can analyze circuit diagrams and assist in solving circuit problems. The current stage focuses on detecting and recognizing circuit components from images as a foundation for automated circuit analysis.",
     image: "/projects/circuit-calculator.png",
+  },
+  {
+    id: 5,
+    title: "Uber Fare Analysis – Data Science",
+    description:
+      "Analyzed New York City taxi trips to understand how fare amounts relate to trip distance, pickup time, and passenger count. Built a reproducible preprocessing workflow and visual analysis to make the findings easier to explore.",
+    image: "/projects/uber-fare-analysis.png",
+    role: "My role: Data cleaning, feature engineering, and exploratory data analysis.",
+    tools: ["Python", "Pandas", "NumPy", "Matplotlib"],
+    metrics: [
+      { value: "200K", label: "trips analyzed" },
+      { value: "175K", label: "trips after cleaning" },
+    ],
   },
 ];
 
@@ -91,6 +107,31 @@ export default function Projects(): React.JSX.Element {
                       <p className="text-white/90 text-base sm:text-lg leading-relaxed">
                         {project.description}
                       </p>
+                      {project.role && (
+                        <p className="mt-4 text-sm sm:text-base leading-relaxed text-purple-200">
+                          <span className="font-semibold text-white">Role</span>
+                          {": "}{project.role.replace(/^My role:\s*/i, "")}
+                        </p>
+                      )}
+                      {project.metrics && (
+                        <div className="mt-5 grid grid-cols-2 gap-3">
+                          {project.metrics.map((metric) => (
+                            <div key={metric.label} className="rounded-xl border border-white/10 bg-black/15 px-4 py-3">
+                              <p className="text-xl font-bold text-white">{metric.value}</p>
+                              <p className="text-xs text-white/60">{metric.label}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {project.tools && (
+                        <div className="mt-5 flex flex-wrap gap-2">
+                          {project.tools.map((tool) => (
+                            <span key={tool} className="rounded-full border border-purple-300/20 bg-purple-400/10 px-3 py-1 text-xs font-medium text-purple-200">
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -137,19 +178,11 @@ export default function Projects(): React.JSX.Element {
                   }`}
                 >
                   <div
-                    className="
-                      relative
-                      w-full
-                      aspect-[4/3]
-                      sm:aspect-[5/4]
-                      lg:aspect-[11/12]
-                      rounded-2xl
-                      overflow-hidden
-                      bg-[#110720]
-                      p-2
-                      sm:p-3
-                      shadow-2xl
-                    "
+                    className={`relative w-full ${
+                      project.id === 5
+                        ? "aspect-[3/1]"
+                        : "aspect-[4/3] sm:aspect-[5/4] lg:aspect-[11/12]"
+                    } rounded-2xl overflow-hidden bg-[#110720] p-2 sm:p-3 shadow-2xl`}
                   >
                     <div className="relative w-full h-full rounded-lg overflow-hidden">
                       <Image
