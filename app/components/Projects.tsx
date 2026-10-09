@@ -18,6 +18,9 @@ const featuredProjects: Project[] = [
     description:
       "Led a team in designing and building a soccer robot for a robotics championship. Worked on system integration, electronics, motor control, and power management. Our team reached the final and secured 3rd place in the championship.",
     image: "/projects/jall.png",
+    role: "Team leadership, robot integration, electronics, and motor control.",
+    tools: ["System Integration", "Electronics", "Motor Control", "Power Management"],
+    metrics: [{ value: "3rd", label: "place at the championship" }],
   },
   {
     id: 2,
@@ -25,6 +28,8 @@ const featuredProjects: Project[] = [
     description:
       "A computer vision project focused on detecting and visualizing changes between coral images captured at different times. The project uses image alignment and visual difference detection to identify changed regions between yearly observations.",
     image: "/projects/coral-changes2.png",
+    role: "Image alignment and visual change detection across yearly coral observations.",
+    tools: ["Computer Vision", "Image Alignment", "Change Detection"],
   },
   {
     id: 3,
@@ -32,13 +37,8 @@ const featuredProjects: Project[] = [
     description:
       "A data science project analyzing the Titanic dataset to explore survival patterns and relationships between passenger characteristics. Used data analysis and visualization to identify trends across fare groups and embarkation locations.",
     image: "/projects/titanic.png",
-  },
-  {
-    id: 4,
-    title: "Circuit Analysis Calculator",
-    description:
-      "An ongoing project focused on developing a system that can analyze circuit diagrams and assist in solving circuit problems. The current stage focuses on detecting and recognizing circuit components from images as a foundation for automated circuit analysis.",
-    image: "/projects/circuit-calculator.png",
+    role: "Exploratory analysis and visualization of passenger survival patterns.",
+    tools: ["Data Analysis", "Survival Trends", "Data Visualization"],
   },
   {
     id: 5,
@@ -46,12 +46,21 @@ const featuredProjects: Project[] = [
     description:
       "Analyzed New York City taxi trips to understand how fare amounts relate to trip distance, pickup time, and passenger count. Built a reproducible preprocessing workflow and visual analysis to make the findings easier to explore.",
     image: "/projects/uber-fare-analysis.png",
-    role: "My role: Data cleaning, feature engineering, and exploratory data analysis.",
+    role: "Data cleaning, feature engineering, and exploratory data analysis.",
     tools: ["Python", "Pandas", "NumPy", "Matplotlib"],
     metrics: [
       { value: "200K", label: "trips analyzed" },
       { value: "175K", label: "trips after cleaning" },
     ],
+  },
+  {
+    id: 4,
+    title: "Circuit Analysis Calculator",
+    description:
+      "An ongoing project focused on developing a system that can analyze circuit diagrams and assist in solving circuit problems. The current stage focuses on detecting and recognizing circuit components from images as a foundation for automated circuit analysis.",
+    image: "/projects/circuit-calculator.png",
+    role: "Circuit component detection and image recognition for automated analysis.",
+    tools: ["Computer Vision", "Component Recognition", "Circuit Analysis"],
   },
 ];
 
@@ -109,8 +118,8 @@ export default function Projects(): React.JSX.Element {
                       </p>
                       {project.role && (
                         <p className="mt-4 text-sm sm:text-base leading-relaxed text-purple-200">
-                          <span className="font-semibold text-white">Role</span>
-                          {": "}{project.role.replace(/^My role:\s*/i, "")}
+                          <span className="font-semibold text-white">My role</span>
+                          {": "}{project.role}
                         </p>
                       )}
                       {project.metrics && (
