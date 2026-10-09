@@ -3,6 +3,7 @@ import Image from "next/image";
 interface Project {
   id: number;
   title: string;
+  category: "Robotics" | "Data Science" | "Computer Vision";
   description: string;
   image: string;
   link?: string;
@@ -17,6 +18,7 @@ const featuredProjects: Project[] = [
   {
     id: 1,
     title: "JALL – Soccer Robot",
+    category: "Robotics",
     description:
       "Led a team in designing and building a soccer robot for a robotics championship. Worked on system integration, electronics, motor control, and power management. Our team reached the final and secured 3rd place in the championship.",
     image: "/projects/jall.png",
@@ -27,6 +29,7 @@ const featuredProjects: Project[] = [
   {
     id: 3,
     title: "Titanic Survival Analysis – Data Science",
+    category: "Data Science",
     description:
       "A data science project analyzing the Titanic dataset to explore survival patterns and relationships between passenger characteristics. Used data analysis and visualization to identify trends across fare groups and embarkation locations.",
     image: "/projects/titanic.png",
@@ -36,6 +39,7 @@ const featuredProjects: Project[] = [
   {
     id: 5,
     title: "Uber Fare Analysis – Data Science",
+    category: "Data Science",
     description:
       "Analyzed New York City taxi trips to understand how fare amounts relate to trip distance, pickup time, and passenger count. Built a reproducible preprocessing workflow and visual analysis to make the findings easier to explore.",
     image: "/projects/uber-fare-analysis.png",
@@ -49,6 +53,7 @@ const featuredProjects: Project[] = [
   {
     id: 2,
     title: "Coral Changes – Computer Vision",
+    category: "Computer Vision",
     description:
       "A computer vision project focused on detecting and visualizing changes between coral images captured at different times. The project uses image alignment and visual difference detection to identify changed regions between yearly observations.",
     image: "/projects/coral-changes2.png",
@@ -58,6 +63,7 @@ const featuredProjects: Project[] = [
   {
     id: 6,
     title: "Red Circle & Blue Square Counting – Computer Vision",
+    category: "Computer Vision",
     description:
       "A video analysis project that detects red circles and blue squares, tracks objects across frames, and keeps a running count using color segmentation and shape features.",
     image: "/projects/counting-red-circles-poster.png",
@@ -69,6 +75,7 @@ const featuredProjects: Project[] = [
   {
     id: 7,
     title: "Face Denoising & Edge Detection – Computer Vision",
+    category: "Computer Vision",
     description:
       "Compared average, median, and Gaussian filters on a noisy portrait, then applied Canny edge detection to see how each denoising method preserves facial details.",
     image: "/projects/face-denoising-edges.png",
@@ -78,6 +85,7 @@ const featuredProjects: Project[] = [
   {
     id: 8,
     title: "Vehicle Speed Detection – Computer Vision",
+    category: "Computer Vision",
     description:
       "Tracked vehicles with a YOLO model and estimated speed from the time each vehicle crossed two reference lines. The measured results are also saved to a CSV file.",
     image: "/projects/speed-detection-poster.png",
@@ -89,6 +97,7 @@ const featuredProjects: Project[] = [
   {
     id: 4,
     title: "Circuit Analysis Calculator",
+    category: "Computer Vision",
     description:
       "An ongoing project focused on developing a system that can analyze circuit diagrams and assist in solving circuit problems. The current stage focuses on detecting and recognizing circuit components from images as a foundation for automated circuit analysis.",
     image: "/projects/circuit-calculator.png",
@@ -106,12 +115,22 @@ export default function Projects(): React.JSX.Element {
       <div className="container mx-auto max-w-7xl">
         {featuredProjects.map((project, index) => {
           const isEven = index % 2 === 1;
+          const isNewCategory =
+            index === 0 || featuredProjects[index - 1].category !== project.category;
 
           return (
             <div
               key={project.id}
               className="mb-20 last:mb-0"
             >
+              {isNewCategory && (
+                <div className="mb-8 flex items-center gap-5">
+                  <h2 className="shrink-0 text-sm font-semibold uppercase tracking-[0.22em] text-purple-300 sm:text-base">
+                    {project.category}
+                  </h2>
+                  <div className="h-px flex-1 bg-gradient-to-r from-purple-400/40 to-transparent" />
+                </div>
+              )}
               <div
                 className={`relative grid grid-cols-1 gap-10 items-center lg:grid-cols-2 lg:gap-12 ${
                   isEven ? "lg:grid-flow-dense" : ""
