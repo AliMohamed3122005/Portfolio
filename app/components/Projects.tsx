@@ -25,15 +25,6 @@ const featuredProjects: Project[] = [
     metrics: [{ value: "3rd", label: "place at the championship" }],
   },
   {
-    id: 2,
-    title: "Coral Changes – Computer Vision",
-    description:
-      "A computer vision project focused on detecting and visualizing changes between coral images captured at different times. The project uses image alignment and visual difference detection to identify changed regions between yearly observations.",
-    image: "/projects/coral-changes2.png",
-    role: "Image alignment and visual change detection across yearly coral observations.",
-    tools: ["Computer Vision", "Image Alignment", "Change Detection"],
-  },
-  {
     id: 3,
     title: "Titanic Survival Analysis – Data Science",
     description:
@@ -54,6 +45,15 @@ const featuredProjects: Project[] = [
       { value: "200K", label: "trips analyzed" },
       { value: "175K", label: "trips after cleaning" },
     ],
+  },
+  {
+    id: 2,
+    title: "Coral Changes – Computer Vision",
+    description:
+      "A computer vision project focused on detecting and visualizing changes between coral images captured at different times. The project uses image alignment and visual difference detection to identify changed regions between yearly observations.",
+    image: "/projects/coral-changes2.png",
+    role: "Image alignment and visual change detection across yearly coral observations.",
+    tools: ["Computer Vision", "Image Alignment", "Change Detection"],
   },
   {
     id: 6,
