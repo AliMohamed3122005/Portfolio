@@ -9,6 +9,8 @@ interface Project {
   role?: string;
   tools?: string[];
   metrics?: { value: string; label: string }[];
+  video?: string;
+  videoPoster?: string;
 }
 
 const featuredProjects: Project[] = [
@@ -52,6 +54,37 @@ const featuredProjects: Project[] = [
       { value: "200K", label: "trips analyzed" },
       { value: "175K", label: "trips after cleaning" },
     ],
+  },
+  {
+    id: 6,
+    title: "Red Circle & Blue Square Counting – Computer Vision",
+    description:
+      "A video analysis project that detects red circles and blue squares, tracks objects across frames, and keeps a running count using color segmentation and shape features.",
+    image: "/projects/counting-red-circles-poster.png",
+    video: "/projects/counting-red-circles-demo.webm",
+    videoPoster: "/projects/counting-red-circles-poster.png",
+    role: "Built HSV color masks, contour-based shape checks, and object tracking for video counts.",
+    tools: ["Python", "OpenCV", "NumPy", "Object Tracking"],
+  },
+  {
+    id: 7,
+    title: "Face Denoising & Edge Detection – Computer Vision",
+    description:
+      "Compared average, median, and Gaussian filters on a noisy portrait, then applied Canny edge detection to see how each denoising method preserves facial details.",
+    image: "/projects/face-denoising-edges.png",
+    role: "Created the noisy image, compared smoothing filters, and extracted facial edges.",
+    tools: ["Python", "OpenCV", "NumPy", "Canny Edge Detection"],
+  },
+  {
+    id: 8,
+    title: "Vehicle Speed Detection – Computer Vision",
+    description:
+      "Tracked vehicles with a YOLO model and estimated speed from the time each vehicle crossed two reference lines. The measured results are also saved to a CSV file.",
+    image: "/projects/speed-detection-poster.png",
+    video: "/projects/speed-detection-demo.webm",
+    videoPoster: "/projects/speed-detection-poster.png",
+    role: "Integrated vehicle detection and tracking with line-crossing timing and speed calculation.",
+    tools: ["Python", "YOLO", "OpenCV", "ByteTrack"],
   },
   {
     id: 4,
@@ -190,23 +223,41 @@ export default function Projects(): React.JSX.Element {
                     className={`relative w-full ${
                       project.id === 5
                         ? "aspect-[3/1]"
+                        : project.video
+                        ? "aspect-video"
+                        : project.id === 7
+                        ? "aspect-[4/3]"
                         : "aspect-[4/3] sm:aspect-[5/4] lg:aspect-[11/12]"
                     } rounded-2xl overflow-hidden bg-[#110720] p-2 sm:p-3 shadow-2xl`}
                   >
                     <div className="relative w-full h-full rounded-lg overflow-hidden">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className={`object-contain ${
-                          project.id === 1
-                            ? "scale-[0.95]"
-                            : project.id === 2
-                            ? "scale-[0.8]"
-                            : ""
-                        }`}
-                      />
+                      {project.video ? (
+                        <video
+                          controls
+                          playsInline
+                          preload="metadata"
+                          poster={project.videoPoster}
+                          aria-label={`${project.title} demo video`}
+                          className="h-full w-full bg-black object-contain"
+                        >
+                          <source src={project.video} type="video/webm" />
+                          Your browser does not support embedded videos.
+                        </video>
+                      ) : (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className={`object-contain ${
+                            project.id === 1
+                              ? "scale-[0.95]"
+                              : project.id === 2
+                              ? "scale-[0.8]"
+                              : ""
+                          }`}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
